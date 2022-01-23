@@ -102,12 +102,18 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import InputTag from 'vue-input-tag'
 
 export default {
+    name : 'edit-product',
+
     components: {
         vueDropzone: vue2Dropzone,
         InputTag
     },
     props: {
         variants: {
+            type: Array,
+            required: true
+        },
+        product:{
             type: Array,
             required: true
         }
@@ -137,9 +143,8 @@ export default {
     methods: {
 
         checkProduct(){
-            console.log(this.variants)
-            console.log("working here")
-            console.log(this.product[0]);
+                console.log("working here")
+                console.log(this.product[0]);
         },
 
         // it will push a new object into product variant
@@ -210,7 +215,7 @@ export default {
     },
     mounted() {
         console.log('Component mounted.')
-        console.log(this.variants)
+        this.checkProduct();
     },
 
 }
